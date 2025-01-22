@@ -1,0 +1,32 @@
+export const intialElements = [
+  {
+    id: "vBEMbKGOM4CQ3M4y7MfgO",
+    type: "rectangle",
+    x: 105.4921875,
+    y: 106.609375,
+    width: 187.24609375,
+    height: 181.2265625,
+    bgColor: "#ff922b",
+    deleted: false,
+  },
+  {
+    id: "5Cf0GSXghAfE0oTMCotmD",
+    type: "rectangle",
+    x: 595.33203125,
+    y: 101.890625,
+    width: 160.63671875,
+    height: 280.7890625,
+    bgColor: "#339af0",
+    deleted: false,
+  },
+  {
+    id: "ZW6rN3EuYPIq7jy_YOxXk",
+    type: "rectangle",
+    x: 118.109375,
+    y: 437.12890625,
+    width: 400.87109375,
+    height: 116.65234375,
+    bgColor: "#f06595",
+    deleted: false,
+  },
+];

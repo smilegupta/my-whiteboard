@@ -1,0 +1,103 @@
+.reset.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .dialog-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+  }
+
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .ok-btn,
+  .cancel-btn {
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:focus-visible {
+      outline: 3px solid #000;
+    }
+  }
+
+  .ok-btn {
+    background-color: #ff6b6b;
+    border: 3px solid #fa5252;
+
+    color: white;
+    &:hover {
+      background-color: #c92a2a;
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 0.625rem;
+    right: 0.625rem;
+    background: transparent;
+    color: #495057;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+      color: #212529;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .reset.dialog-overlay {
+    .dialog-container {
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+    .ok-btn,
+    .cancel-btn {
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .reset.dialog-overlay {
+    .dialog-container {
+      h2 {
+        font-size: 1rem;
+      }
+    }
+    .ok-btn,
+    .cancel-btn {
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+  }
+}
