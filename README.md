@@ -20,12 +20,12 @@ Whiteboard Skeleton for Canvas Workshop 2025
 
    ```
 
-    Using NPM
+   Using NPM
 
-    ```
-    npm install
+   ```
+   npm install
 
-    ```
+   ```
 
 3. Start the development server
 
@@ -33,5 +33,5 @@ Whiteboard Skeleton for Canvas Workshop 2025
    yarn dev
    ```
 
-4. The browser will open `http://localhost:5000`
+4. The browser will open `http://localhost:5001`
 5. Enjoy Building your Whiteboard!
