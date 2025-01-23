@@ -4,8 +4,6 @@ import { useRef, useState } from "react";
 import ResetCanvasDialog from "./ResetCanvasDialog.tsx";
 import { TrashIcon } from "../icons.tsx";
 
-import Scene from "../Scene";
-
 import "./App.scss";
 
 const App = () => {
@@ -14,7 +12,6 @@ const App = () => {
 
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
-	const sceneRef = useRef<Scene | null>(null);
 
 	const onToolChange = (tool: ActiveTool) => {
 		setActiveTool(tool);

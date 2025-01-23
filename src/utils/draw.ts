@@ -1,6 +1,4 @@
 import { Shape } from "../shape.ts";
-import { SELECTION_BORDER_PADDING } from "../constants.ts";
-import { RESIZE_HANDLER_SIZE } from "../resize.ts";
 
 /**
  * Draws a rectangle on the canvas

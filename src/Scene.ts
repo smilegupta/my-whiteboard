@@ -58,9 +58,8 @@ class Scene {
 
   /**
    * Redraws the scene
-   * @param selectedElementIds - The ids of the selected elements
    */
-  redraw(selectedElementIds: Array<string>) {
+  redraw() {
     // TODO: Implement this
   }
 }
