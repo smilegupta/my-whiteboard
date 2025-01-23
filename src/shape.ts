@@ -2,7 +2,7 @@ import { nanoid } from "nanoid";
 
 export interface Shape {
   id: string;
-  type: string;
+  type: "rectangle";
   x: number;
   y: number;
   width: number;

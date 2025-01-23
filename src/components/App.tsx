@@ -47,11 +47,11 @@ const App = () => {
 				</div>
 				<canvas
 					ref={canvasRef}
+					width={window.innerWidth}
+					height={window.innerHeight}
 					style={{
 						touchAction: "none",
 						display: "block",
-						width: window.innerWidth,
-						height: window.innerHeight,
 					}}
 				></canvas>
 			</div>

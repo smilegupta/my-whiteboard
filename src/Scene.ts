@@ -1,6 +1,4 @@
-import { clearCanvas, drawRect, renderSelectionBorder } from "./utils/draw";
 import { Shape } from "./shape";
-import { renderResizeHandlers } from "./resize";
 
 class Scene {
   private elements: Array<Shape>;

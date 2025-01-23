@@ -20,8 +20,9 @@ export const drawRect = (
   height: number,
   bgColor: string,
 ) => {
-  
-};
+  // TODO: Implement this
+
+  };
 
 /**
  * Clears the canvas
