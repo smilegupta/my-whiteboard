@@ -30,17 +30,15 @@ const App = () => {
 	return (
 		<div className="whiteboard-app">
 			<div className="whiteboard-app-canvas" ref={wrapperRef}>
-				<div className="whiteboard-app-tools">
-					<button
-						onClick={() => setshowResetCanvasDialog(true)}
-						aria-label={"clear canvas"}
-					>
-						{TrashIcon}
-					</button>
-
-					<div className="shapes-toolbar-container">
-						<ShapesToolbar onClick={onToolChange} activeTool={activeTool} />
-					</div>
+				<button
+					className="clear-canvas-btn"
+					onClick={() => setshowResetCanvasDialog(true)}
+					aria-label={"clear canvas"}
+				>
+					{TrashIcon}
+				</button>
+				<div className="shapes-toolbar-container">
+					<ShapesToolbar onClick={onToolChange} activeTool={activeTool} />
 				</div>
 				<canvas
 					ref={canvasRef}
