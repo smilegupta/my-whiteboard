@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 
-export interface WhiteboardElement {
+export interface ElementType {
   id: string;
   type: "rectangle";
   x: number;
@@ -21,7 +21,9 @@ export interface WhiteboardElement {
  * @param bgColor - The background color of the shape
  * @returns The new shape
  */
-export const createElement = (
+
+// @TODO - I wish I could name it as createElement :(
+export const generateElement = (
   type: string,
   x: number,
   y: number,

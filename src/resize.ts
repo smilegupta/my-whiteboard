@@ -1,4 +1,4 @@
-import { Shape } from "./shape";
+import { ElementType } from "./element";
 
 export const RESIZE_HANDLE = {
   NW: "nw",
@@ -20,7 +20,7 @@ export const RESIZE_THRESHOLD = 10;
  */
 export const renderResizeHandlers = (
   canvas: HTMLCanvasElement,
-  element: Shape,
+  element: ElementType,
 ) => {
   // TODO: Implement this
 
@@ -39,7 +39,7 @@ export const renderResizeHandlers = (
 };
 export const isHittingResizeHandlers = (
   canvas: HTMLCanvasElement,
-  element: Shape,
+  element: ElementType,
   sceneX: number,
   sceneY: number,
 ): RESIZE_HANDLE_TYPE | null => {

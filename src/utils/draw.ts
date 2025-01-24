@@ -1,4 +1,3 @@
-import { Shape } from "../shape.ts";
 
 /**
  * Draws a rectangle on the canvas
@@ -9,6 +8,9 @@ import { Shape } from "../shape.ts";
  * @param height - The height of the rectangle
  * @param bgColor - The background color of the rectangle
  */
+
+import { ElementType } from "../element";
+
  
 export const drawRect = (
   canvas: HTMLCanvasElement,
@@ -37,7 +39,7 @@ export const clearCanvas = (canvas: HTMLCanvasElement) => {
  */
 export const renderSelectionBorder = (
   canvas: HTMLCanvasElement,
-  element: Shape,
+  element: ElementType,
 ) => {
   // TODO: Implement this
   

@@ -1,4 +1,4 @@
-import { Shape } from "../shape.ts";
+import { ElementType } from "../element";
 
 const THRESHOLD = 10;
 
@@ -11,7 +11,7 @@ const THRESHOLD = 10;
 export const isHittingElement = (
   sceneX: number,
   sceneY: number,
-  element: Shape,
+  element: Element,
 ) => {
   // TODO: Implement this
 };
@@ -25,7 +25,7 @@ export const isHittingElement = (
 export const getHitElement = (
   sceneX: number,
   sceneY: number,
-  elements: Array<Shape>,
+  elements: Array<ElementType>,
 ) => {
   // TODO: Implement this
 };

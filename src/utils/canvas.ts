@@ -1,7 +1,7 @@
-import { Shape } from "../shape";
 import {
   ELEMENT_BOUNDARY_OFFSET,
 } from "../constants";
+import { ElementType } from "../element";
 
 const MIN_X = ELEMENT_BOUNDARY_OFFSET;
 const MIN_Y = ELEMENT_BOUNDARY_OFFSET;
@@ -16,7 +16,7 @@ const MIN_Y = ELEMENT_BOUNDARY_OFFSET;
   // TODO: Implement this
 export const clampToCanvas = (
   canvas: HTMLCanvasElement,
-  element: Shape,
+  element: ElementType,
   deltaX: number,
   deltaY: number,
 ) => {

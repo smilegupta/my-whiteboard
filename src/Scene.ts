@@ -1,7 +1,7 @@
-import { Shape } from "./shape";
+import { ElementType } from "./element";
 
 class Scene {
-  private elements: Array<Shape>;
+  private elements: Array<ElementType>;
   private canvas: HTMLCanvasElement;
 
   constructor(canvas: HTMLCanvasElement) {
@@ -9,11 +9,11 @@ class Scene {
     this.canvas = canvas;
   }
 
-  addElement(element: Shape) {
+  addElement(element: ElementType) {
     this.elements.push(element);
   }
 
-  updateElement(id: string, updates: Partial<Shape>) {
+  updateElement(id: string, updates: Partial<ElementType>) {
     const index = this.elements.findIndex((element) => element.id === id);
     if (index === -1) {
       console.error("Element not found");
@@ -22,7 +22,7 @@ class Scene {
     this.elements[index] = { ...this.elements[index], ...updates };
   }
 
-  replaceElements(elements: Array<Shape>) {
+  replaceElements(elements: Array<ElementType>) {
     this.elements = elements;
   }
   removeElement(id: string) {
@@ -48,7 +48,7 @@ class Scene {
         acc[element.id] = element;
         return acc;
       },
-      {} as Record<string, Shape>,
+      {} as Record<string, ElementType>,
     );
   }
 
