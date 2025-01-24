@@ -20,3 +20,6 @@ export const DPR = typeof window !== "undefined" ? window.devicePixelRatio || 1 
  */
 export const ELEMENT_BOUNDARY_OFFSET =
   SELECTION_BORDER_PADDING + RESIZE_HANDLER_SIZE / 2;
+
+  /** Selection color */
+export const SELECTION_COLOR: "#7048e8";

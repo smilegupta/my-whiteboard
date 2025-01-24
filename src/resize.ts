@@ -40,8 +40,8 @@ export const renderResizeHandlers = (
 export const isHittingResizeHandlers = (
   canvas: HTMLCanvasElement,
   element: ElementType,
-  sceneX: number,
-  sceneY: number,
+  coordX: number,
+  coordY: number,
 ): RESIZE_HANDLE_TYPE | null => {
   // TODO: Implement this
 

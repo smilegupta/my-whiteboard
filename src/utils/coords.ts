@@ -15,13 +15,13 @@ export const viewportCoordsToSceneCoords = (
 
   /**
  * Converts scene coordinates to viewport coordinates
- * @param sceneX - The scene x coordinate
- * @param sceneY - The scene y coordinate
+ * @param coordX - The scene x coordinate
+ * @param coordY - The scene y coordinate
  * @param opts - The options
  */
 export const sceneCoordsToViewportCoords = (
-  sceneX: number,
-  sceneY: number,
+  coordX: number,
+  coordY: number,
   opts: { offsetX: number; offsetY: number },
 ) => {
   // TODO: Implement this
