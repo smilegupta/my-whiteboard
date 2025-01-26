@@ -10,6 +10,7 @@ import { randomColor } from "../utils/colors.ts";
 import Scene from "../Scene.ts";
 import { ElementType, generateElement } from "../element.ts";
 import { getHitElement } from "../utils/hitTest.ts";
+import { getNormalizedRect } from "../utils/coords.ts";
 
 interface PointerDownState {
   origin: {
@@ -33,6 +34,10 @@ const App = () => {
     if (!canvasRef.current) return;
     sceneRef.current = new Scene(canvasRef.current);
   }, []);
+
+  useEffect(() => {
+    console.log("sceneRef.current", sceneRef.current);
+  }, [sceneRef.current]);
 
   const onToolChange = (tool: ActiveTool) => {
     setActiveTool(tool);
@@ -105,20 +110,23 @@ const App = () => {
 
     if (activeTool === "rectangle") {
       const { origin, bgColor } = pointerDownStateRef.current;
-      const width = event.clientX - origin.x;
-      const height = event.clientY - origin.y;
-      const element = generateElement(
-        "rectangle",
+      const { x, y, width, height } = getNormalizedRect(
         origin.x,
         origin.y,
+        event.clientX,
+        event.clientY
+      );
+      const element = generateElement(
+        "rectangle",
+        x,
+        y,
         width,
         height,
         bgColor
       );
+
       sceneRef.current.addElement(element);
       console.log(sceneRef.current.getAllElements(), "Scene elements");
-      document.removeEventListener("pointermove", onPointerMove);
-      document.removeEventListener("pointerup", onPointerUp);
       onToolChange("selection");
     } else if (activeTool === "selection") {
       if (!pointerDownStateRef.current) {
@@ -133,6 +141,9 @@ const App = () => {
         sceneRef.current.redraw();
       }
     }
+
+    document.removeEventListener("pointermove", onPointerMove);
+    document.removeEventListener("pointerup", onPointerUp);
   };
 
   return (

@@ -11,14 +11,14 @@ export const viewportCoordsToSceneCoords = (
   opts: { offsetX: number; offsetY: number },
 ) => {
   // TODO: Implement this
-  };
+};
 
-  /**
- * Converts scene coordinates to viewport coordinates
- * @param coordX - The scene x coordinate
- * @param coordY - The scene y coordinate
- * @param opts - The options
- */
+/**
+* Converts scene coordinates to viewport coordinates
+* @param coordX - The scene x coordinate
+* @param coordY - The scene y coordinate
+* @param opts - The options
+*/
 export const sceneCoordsToViewportCoords = (
   coordX: number,
   coordY: number,
@@ -40,5 +40,13 @@ export const getNormalizedRect = (
   endX: number,
   endY: number,
 ) => {
-  // TODO: Implement this
+  const x = Math.min(startX, endX);
+  const y = Math.min(startY, endY);
+
+  const width = Math.abs(startX - endX);
+  const height = Math.abs(startY - endY);
+
+  return {
+    x, y, width, height
+  }
 };
