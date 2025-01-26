@@ -1,5 +1,5 @@
 import ShapesToolbar, { ActiveTool } from "./ShapesToolbar.tsx";
-import React, { ElementType, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ResetCanvasDialog from "./ResetCanvasDialog.tsx";
 import { TrashIcon } from "../icons.tsx";
@@ -8,7 +8,7 @@ import "./App.scss";
 import { clearCanvas, drawRect, renderSelectionBorder } from "../utils/draw.ts";
 import { randomColor } from "../utils/colors.ts";
 import Scene from "../Scene.ts";
-import { generateElement } from "../element.ts";
+import { ElementType, generateElement } from "../element.ts";
 import { getHitElement } from "../utils/hitTest.ts";
 
 interface PointerDownState {
@@ -19,8 +19,6 @@ interface PointerDownState {
   bgColor: string;
   hitElement: ElementType | undefined;
 }
-
-// let isDrawing = false;
 
 const App = () => {
   const [activeTool, setActiveTool] = useState<ActiveTool>("selection");
@@ -56,7 +54,7 @@ const App = () => {
   };
 
   const onPointerDown = (event: React.PointerEvent<HTMLCanvasElement>) => {
-    console.log("on pointer up");
+    console.log("on pointer down");
     if (!sceneRef.current) return;
     const allElements = sceneRef.current.getAllElements();
     const hitElement = getHitElement(event.clientX, event.clientY, allElements);
@@ -66,8 +64,8 @@ const App = () => {
         x: event.clientX,
         y: event.clientY,
       },
-			bgColor: randomColor(),
-			hitElement,
+      bgColor: randomColor(),
+      hitElement,
     };
 
     document.addEventListener("pointermove", onPointerMove);
@@ -102,16 +100,9 @@ const App = () => {
     ) {
       return;
     }
-    // console.log("on pointer up");
 
-    if (activeTool === "selection") {
-      const { hitElement } = pointerDownStateRef.current;
-      if (hitElement) {
-        renderSelectionBorder(canvasRef.current, hitElement);
-      } else {
-        //  noop
-      }
-    }
+    console.log("on pointer up");
+
     if (activeTool === "rectangle") {
       const { origin, bgColor } = pointerDownStateRef.current;
       const width = event.clientX - origin.x;
@@ -128,8 +119,19 @@ const App = () => {
       console.log(sceneRef.current.getAllElements(), "Scene elements");
       document.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("pointerup", onPointerUp);
-
       onToolChange("selection");
+    } else if (activeTool === "selection") {
+      if (!pointerDownStateRef.current) {
+        return;
+      }
+      const { hitElement } = pointerDownStateRef.current;
+
+      if (hitElement) {
+        renderSelectionBorder(canvasRef.current, hitElement);
+      } else {
+        clearCanvas(canvasRef.current);
+        sceneRef.current.redraw();
+      }
     }
   };
 
@@ -155,7 +157,6 @@ const App = () => {
             display: "block",
           }}
           onPointerDown={onPointerDown}
-          // onClick={onClick}
         ></canvas>
       </div>
       {showResetCanvasDialog && (
