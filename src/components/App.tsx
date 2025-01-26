@@ -94,6 +94,24 @@ const App = () => {
       sceneRef.current.redraw(selectElementIdsRef.current);
       console.log("DRAWING RECTANGLE");
       drawRect(canvasRef.current, origin.x, origin.y, width, height, bgColor);
+    } else if (activeTool === "selection") {
+      if (selectElementIdsRef.current.length === 0) return;
+      // const selectedElement = selectElementIdsRef.current[0];
+
+      const { origin, hitElement } = pointerDownStateRef.current;
+
+      if (!hitElement) return;
+
+      const deltaX = event.clientX - origin.x;
+      const deltaY = event.clientY - origin.y;
+
+      selectElementIdsRef.current = [hitElement.id];
+      sceneRef.current.updateElement(hitElement?.id, {
+        x: hitElement.x + deltaX,
+        y: hitElement.y + deltaY,
+      });
+
+      sceneRef.current.redraw(selectElementIdsRef.current);
     }
   };
 
@@ -145,6 +163,7 @@ const App = () => {
 
     document.removeEventListener("pointermove", onPointerMove);
     document.removeEventListener("pointerup", onPointerUp);
+    pointerDownStateRef.current = null;
   };
 
   return (
