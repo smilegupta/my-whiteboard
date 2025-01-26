@@ -9,9 +9,14 @@ import { ElementType } from "../element";
 export const isHittingElement = (
   coordX: number,
   coordY: number,
-  element: Element,
+  element: ElementType,
 ) => {
-  // TODO: Implement this
+  const { x, y, width, height } = element;
+  if (coordX > x && coordX <= x + width && coordY > y && coordY <= y + height) {
+    return true;
+  }
+
+  return false;
 };
 
 /**
@@ -25,5 +30,5 @@ export const getHitElement = (
   coordY: number,
   elements: Array<ElementType>,
 ) => {
-  // TODO: Implement this
+  return elements.find((element) => isHittingElement(coordX, coordY, element));
 };
